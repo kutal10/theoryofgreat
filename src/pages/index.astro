@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Film from "../components/Film.astro";
+import "@fontsource-variable/plus-jakarta-sans";
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<div class="header-group">
+			<h1><a href="/" class="header-link">Theory of Great</a></h1>
+			<h4><a href="/about" class="header-link">About</a></h4>
+		</div>
+		<ul role="list" class="link-card-grid">
+			<Film
+				imagePath="/Compete.jpg"
+				filmName="Compete"
+				filmId={375112280}
+				type="Documentary"
+				description="Compete follows Salman Khan, a final year medicine student at Cambridge University that competes internationally for British powerlifting, as he makes a crucial transition in his life "
+				minutes={30}
+				seconds={0}
+			/>
+			<Film
+				imagePath="/Daughter.jpg"
+				filmName="Daughter"
+				filmId={332080277}
+				type="Film"
+				description="A father stumbles on old memories that triggers a reminder of his past"
+				minutes={2}
+				seconds={30}
+			/>
+			<Film
+				imagePath="/Shyam.jpg"
+				filmName="Discovery"
+				filmId={332080277}
+				type="Documentary"
+				description="A photographer walks through his process in an early fall photoshoot"
+				minutes={4}
+				seconds={30}
+			/>
+			<Film
+				imagePath="/Paak.jpg"
+				filmName="Paak"
+				filmId={396533572}
+				type="Animation"
+				description="A deep dive into the journey of Anderson Paak up to the launch of Ventura"
+				minutes={5}
+				seconds={44}
+			/>
+			<Film
+				imagePath="/Abstraction.jpg"
+				filmName="Abstraction"
+				filmId={422103474}
+				type="Animation"
+				description="A reminder of how our problems are subjects of our own perspective"
+				minutes={1}
+				seconds={47}
+			/>
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-family: "Plus Jakarta Sans Variable", sans-serif;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1;
+		padding-right: 10px; /* Adds some space between the elements */
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		padding: 0;
+	}
+	.header-group {
+		display: flex;
+		justify-content: space-between; /* Aligns one item to the left, the other to the right */
+		align-items: flex-end; /* Aligns vertically if needed */
+	}
+	.header-link {
+		color: inherit;
+		text-decoration: none;
+	}
+</style>

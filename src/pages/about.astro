@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Film from "../components/Film.astro";
+import "@fontsource-variable/plus-jakarta-sans";
+---
+
+<Layout title="About">
+	<main>
+		<div class="header-group">
+			<h1><a href="/" class="header-link">Theory of Great</a></h1>
+			<h4><a href="/about" class="header-link">About</a></h4>
+		</div>
+		<div class="content">
+			<img class="profilePic" src="src/images/profile.jpg" />
+			<div class="text-email-wrapper">
+				<div class="text">
+					<span class="about"
+						><i>Theory of Great</i> is actually an incomplete phrase - fully it's
+						meant to say <i>Theory of Great People</i>. People, in this context,
+						represents great artists, musicians, athletes and the list goes on.
+						It's my way of learning by being in the presence of great people. <i
+							>Theory of Great</i
+						> then, is an archive of all the brilliant stories i've had the pleasure
+						of constructing, and will remain so until my passing.</span
+					>
+					<div class="name">Rahul</div>
+				</div>
+				<div class="email">Email: hello@theoryofgreat.com</div>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-family: "Plus Jakarta Sans Variable", sans-serif;
+	}
+	.content {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		line-height: 1.75em;
+		text-align: justify;
+		position: relative;
+	}
+	.name {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-end;
+	}
+	.text-email-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between; /* This will push the .email to the bottom */
+		height: 100%; /* Ensure the wrapper takes the full height */
+	}
+	.email {
+		position: absolute;
+		bottom: 0;
+		align-self: flex-end; /* Aligns email to the right */
+	}
+	.profilePic {
+		max-width: 50%;
+		padding-right: 2em;
+	}
+	.about {
+	}
+	h1 {
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1;
+		padding-right: 10px; /* Adds some space between the elements */
+	}
+	.header-group {
+		display: flex;
+		justify-content: space-between; /* Aligns one item to the left, the other to the right */
+		align-items: flex-end; /* Aligns vertically if needed */
+	}
+	.header-link {
+		color: inherit;
+		text-decoration: none;
+	}
+</style>
