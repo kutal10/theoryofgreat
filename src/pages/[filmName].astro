@@ -1,0 +1,131 @@
+---
+export async function getStaticPaths() {
+	const filmDetails = [
+		{
+			filmId: 375112280,
+			filmName: "Compete",
+			type: "Documentary",
+			description:
+				"Compete follows Salman Khan, a final year medicine student at Cambridge University that competes internationally for British powerlifting, as he makes a crucial transition in his life ",
+			minutes: 30,
+			seconds: 0,
+		},
+		{
+			filmId: 332080277,
+			filmName: "Daughter",
+			type: "Film",
+			description:
+				"A father stumbles on old memories that triggers a reminder of his past",
+			minutes: 2,
+			seconds: 30,
+		},
+		{
+			filmId: 332080277,
+			filmName: "Discovery",
+			type: "Documentary",
+			description:
+				"A photographer walks through his process in an early fall photoshoot",
+			minutes: 4,
+			seconds: 30,
+		},
+		{
+			filmId: 396533572,
+			filmName: "Paak",
+			type: "Animation",
+			description:
+				"A deep dive into the journey of Anderson Paak up to the launch of Ventura",
+			minutes: 5,
+			seconds: 44,
+		},
+		{
+			filmId: 422103474,
+			filmName: "Abstraction",
+			type: "Animation",
+			description:
+				"A reminder of how our problems are subjects of our own perspective",
+			minutes: 1,
+			seconds: 47,
+		},
+	];
+
+	return filmDetails.map((filmDetail) => {
+		return {
+			params: { filmName: filmDetail.filmName },
+			props: { filmDetail },
+		};
+	});
+}
+
+const { filmName } = Astro.params;
+const { filmDetail } = Astro.props;
+
+import { Vimeo } from "@astro-community/astro-embed-vimeo";
+import Layout from "../layouts/Layout.astro";
+import "@fontsource-variable/plus-jakarta-sans";
+---
+
+<Layout title="About">
+	<main>
+		<div class="header-group">
+			<h1><a href="/" class="header-link">Theory of Great</a></h1>
+			<h4><a href="/about" class="header-link">About</a></h4>
+		</div>
+		<div class="filmName">{filmDetail.filmName}</div>
+		<div class="filmType">{filmDetail.type}</div>
+		<div style="padding:60.55% 0 0 0;position:relative;">
+			<iframe
+				src=`https://player.vimeo.com/video/${filmDetail.filmId}?badge=0&autopause=0&player_id=0&app_id=58479`
+				frameborder="0"
+				allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+				style="position:absolute;top:0;left:0;width:100%;height:100%;"
+				title="Compete"></iframe>
+		</div><script src="https://player.vimeo.com/api/player.js"></script>
+		<div class="filmDescription">{filmDetail.description}</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-family: "Plus Jakarta Sans Variable", sans-serif;
+	}
+	.content {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		line-height: 1.75em;
+		text-align: justify;
+		position: relative;
+	}
+	h1 {
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1;
+		padding-right: 10px; /* Adds some space between the elements */
+	}
+	.header-group {
+		display: flex;
+		justify-content: space-between; /* Aligns one item to the left, the other to the right */
+		align-items: flex-end; /* Aligns vertically if needed */
+	}
+	.header-link {
+		color: inherit;
+		text-decoration: none;
+	}
+	.filmName {
+		font-weight: 100;
+		font-size: 1.5em;
+	}
+	.filmType {
+		font-weight: 500;
+		font-size: 0.85em;
+	}
+	.filmDescription {
+		font-weight: 100;
+		font-size: 0.85em;
+	}
+</style>

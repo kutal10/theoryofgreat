@@ -10,14 +10,14 @@ interface Props {
 }
 
 import "@fontsource-variable/plus-jakarta-sans";
-import FilmPage from "../pages/[filmId].astro";
+import FilmPage from "../pages/[filmName].astro";
 
 const { imagePath, filmName, filmId, type, description, minutes, seconds } =
 	Astro.props;
 ---
 
 <div class="imageWrapper">
-	<a href={`/${filmId}`} class="posterLink">
+	<a href={`/${filmName}`} class="posterLink">
 		<img class="poster" src={`/src/images/${imagePath}`} alt={filmName} />
 		<div class="overlay">
 			<div class="internalOverlay">
