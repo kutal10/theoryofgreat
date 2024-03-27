@@ -9,6 +9,8 @@ export async function getStaticPaths() {
 				"Compete follows Salman Khan, a final year medicine student at Cambridge University that competes internationally for British powerlifting, as he makes a crucial transition in his life ",
 			minutes: 30,
 			seconds: 0,
+			aspectWidth: 2.35,
+			aspectHeight: 1,
 		},
 		{
 			filmId: 332080277,
@@ -18,6 +20,8 @@ export async function getStaticPaths() {
 				"A father stumbles on old memories that triggers a reminder of his past",
 			minutes: 2,
 			seconds: 30,
+			aspectWidth: 16,
+			aspectHeight: 9,
 		},
 		{
 			filmId: 927731606,
@@ -27,6 +31,8 @@ export async function getStaticPaths() {
 				"A photographer walks through his process in an early fall photoshoot",
 			minutes: 4,
 			seconds: 30,
+			aspectWidth: 2.35,
+			aspectHeight: 1,
 		},
 		{
 			filmId: 396533572,
@@ -36,6 +42,8 @@ export async function getStaticPaths() {
 				"A deep dive into the journey of Anderson Paak up to the launch of Ventura",
 			minutes: 5,
 			seconds: 44,
+			aspectWidth: 16,
+			aspectHeight: 9,
 		},
 		{
 			filmId: 422103474,
@@ -45,6 +53,8 @@ export async function getStaticPaths() {
 				"A reminder of how our problems are subjects of our own perspective",
 			minutes: 1,
 			seconds: 47,
+			aspectWidth: 16,
+			aspectHeight: 9,
 		},
 	];
 
@@ -72,15 +82,18 @@ import "@fontsource-variable/plus-jakarta-sans";
 		</div>
 		<div class="filmName">{filmDetail.filmName}</div>
 		<div class="filmType">{filmDetail.type}</div>
-		<div style="padding:60.55% 0 0 0;position:relative;">
-			<iframe
-				src=`https://player.vimeo.com/video/${filmDetail.filmId}?badge=0&autopause=0&player_id=0&app_id=58479`
-				frameborder="0"
-				allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-				style="position:absolute;top:0;left:0;width:100%;height:100%;"
-				title="Compete"></iframe>
-		</div><script src="https://player.vimeo.com/api/player.js"></script>
-		<div class="filmDescription">{filmDetail.description}</div>
+		<div class="video">
+			<div
+				style={`padding:${(filmDetail.aspectHeight / filmDetail.aspectWidth) * 100}% 0 0 0;position:relative;`}
+			>
+				<iframe
+					src=`https://player.vimeo.com/video/${filmDetail.filmId}?badge=0&autopause=0&player_id=0&app_id=58479`
+					frameborder="0"
+					allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+					style="position:absolute;top:0;left:0;width:100%;height:100%;"
+					title="Compete"></iframe>
+			</div><script src="https://player.vimeo.com/api/player.js"></script>
+		</div>
 	</main>
 </Layout>
 
@@ -100,6 +113,9 @@ import "@fontsource-variable/plus-jakarta-sans";
 		line-height: 1.75em;
 		text-align: justify;
 		position: relative;
+	}
+	.video {
+		padding-block: 1em;
 	}
 	h1 {
 		font-size: 2rem;
