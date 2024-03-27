@@ -11,6 +11,13 @@ export async function getStaticPaths() {
 			seconds: 0,
 			aspectWidth: 2.35,
 			aspectHeight: 1,
+			crew: {
+				Director: "Rahul Pai",
+				Editor: "Kasra Zadkhorvash",
+				Score: "Michael Gaffney",
+				"Special Thanks":
+					"Dennis Mubaiwa, Hani Jazayrli, Rabea Khan, Ashley Edwards, Matthew Parker, Becky Proctor, Ramsay Kirkhy, David Cook",
+			},
 		},
 		{
 			filmId: 332080277,
@@ -22,6 +29,7 @@ export async function getStaticPaths() {
 			seconds: 30,
 			aspectWidth: 16,
 			aspectHeight: 9,
+			crew: { Director: "Rahul Pai", Editor: "Kasra Zadkhorvash", Score: "Adina Nelu", Starring: "Thomas Downes" },
 		},
 		{
 			filmId: 927731606,
@@ -33,6 +41,7 @@ export async function getStaticPaths() {
 			seconds: 30,
 			aspectWidth: 2.35,
 			aspectHeight: 1,
+			crew: { Director: "Rahul Pai", Starring: "Shyam Chauhan" },
 		},
 		{
 			filmId: 396533572,
@@ -44,6 +53,7 @@ export async function getStaticPaths() {
 			seconds: 44,
 			aspectWidth: 16,
 			aspectHeight: 9,
+			crew: { Director: "Rahul Pai", "Cover Art": "Brandon Spahn", "Sound Mixing": "Atlas Sounds" },
 		},
 		{
 			filmId: 422103474,
@@ -55,6 +65,7 @@ export async function getStaticPaths() {
 			seconds: 47,
 			aspectWidth: 16,
 			aspectHeight: 9,
+			crew: { Director: "Rahul Pai", "Sound Mixing": "David Cerelli" },
 		},
 	];
 
@@ -93,6 +104,16 @@ import "@fontsource-variable/plus-jakarta-sans";
 					style="position:absolute;top:0;left:0;width:100%;height:100%;"
 					title="Compete"></iframe>
 			</div><script src="https://player.vimeo.com/api/player.js"></script>
+		</div>
+		<div class="crewDetails">
+			{
+				Object.entries(filmDetail.crew).map(([role, name]) => (
+					<div>
+						<span class="role">{role.replace(/([A-Z])/g, " $1").trim()}:</span>{" "}
+						<span class="roleName">{name}</span>
+					</div>
+				))
+			}
 		</div>
 	</main>
 </Layout>
@@ -141,6 +162,14 @@ import "@fontsource-variable/plus-jakarta-sans";
 		font-size: 0.85em;
 	}
 	.filmDescription {
+		font-weight: 100;
+		font-size: 0.85em;
+	}
+	.role {
+		font-weight: 700;
+		font-size: 0.85em;
+	}
+	.roleName {
 		font-weight: 100;
 		font-size: 0.85em;
 	}
