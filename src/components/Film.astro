@@ -40,6 +40,13 @@ const { imagePath, filmName, filmId, type, description, minutes, seconds } =
 			</div>
 		</div>
 	</a>
+    <!-- Mobile-specific name and details on one line -->
+        <div class="mobile-info">
+            <span class="filmName-mobile">{filmName}</span>
+            <span class="dotDivider-mobile">•</span>
+            <span class="type-mobile">{type}</span>
+            <span class="time-mobile">{minutes}:{seconds === 0 ? "00" : seconds}</span>
+        </div>
 </div>
 
 <style>
@@ -92,6 +99,30 @@ const { imagePath, filmName, filmId, type, description, minutes, seconds } =
 		font-size: 1em;
 		padding-right: 0.2em;
 	}
+
+    .mobile-info {
+    display: flex; /* Use flex to align items in a row */
+    justify-content: space-between; /* Space out elements to push time to the right */
+    align-items: center; /* Center items vertically */
+    padding-block: 0.5em; /* Add some padding for spacing */
+    display: none; /* Hide mobile-specific items by default */
+
+}
+
+.filmName-mobile, .time-mobile  {
+    font-weight: 300;
+    font-size: 0.65em;
+}
+
+.type-mobile, .dotDivider-mobile {
+    font-weight: 200;
+    font-size: 0.55em;
+}
+
+.time-mobile {
+    margin-left: auto; /* Push the time to the far right */
+}
+
 	.type {
 		font-weight: 100;
 		font-size: 0.85em;
@@ -131,4 +162,25 @@ const { imagePath, filmName, filmId, type, description, minutes, seconds } =
 		color: inherit;
 		text-decoration: none;
 	}
+
+    /* Media Query for Mobile */
+        @media (max-width: 768px) {
+            .filmName-mobile, .type-mobile, .time-mobile, .dotDivider-mobile {
+                display: inline; /* Show elements on mobile */
+                padding-right: 0.4em;
+            }
+
+            .info .filmName, .info .type, .info .minutes {
+                display: none; /* Hide overlay info on mobile */
+            }
+
+            .overlay {
+                display: none; /* Hide overlay on mobile */
+            }
+
+            .mobile-info {
+                display: flex; /* Ensure flex layout for mobile */
+                flex-wrap: nowrap; /* No wrapping, keep items on one line */
+            }
+        }
 </style>

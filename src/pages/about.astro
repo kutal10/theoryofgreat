@@ -43,6 +43,7 @@ import "@fontsource-variable/plus-jakarta-sans";
 	.content {
 		display: flex;
 		align-items: flex-start;
+            flex-direction: row; /* Default layout for larger screens */
 		justify-content: space-between;
 		line-height: 1.75em;
 		text-align: justify;
@@ -52,6 +53,7 @@ import "@fontsource-variable/plus-jakarta-sans";
 		display: flex;
 		align-items: flex-start;
 		justify-content: flex-end;
+        font-weight: 700;
 	}
 	.text-email-wrapper {
 		display: flex;
@@ -60,17 +62,19 @@ import "@fontsource-variable/plus-jakarta-sans";
 		height: 100%; /* Ensure the wrapper takes the full height */
 	}
 	.email {
-		position: absolute;
-		bottom: 0;
-		align-self: flex-end; /* Aligns email to the right */
-        font-size: 0.85em;
+		font-size: 0.85em;
+		text-align: center; /* Center the text horizontally */
+        padding-top: 4em;
+		width: 100%; /* Ensure it takes the full width of its parent */
 	}
 	.profilePic {
 		max-width: 50%;
 		padding-right: 2em;
 	}
 	.about {
-	}
+    text-align: justify; /* Justify text */
+}
+
 	h1 {
 		font-size: 2rem;
 		font-weight: 700;
@@ -86,4 +90,33 @@ import "@fontsource-variable/plus-jakarta-sans";
 		color: inherit;
 		text-decoration: none;
 	}
+
+    /* Mobile-specific styles */
+@media (max-width: 600px) {
+    .content {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align for mobile */
+    }
+    .profilePic {
+        max-width: 30vh; /* Reduce image size */
+        max-height: 60vh; /* Scale image height based on the viewport */
+        padding-right: 0; /* Remove padding */
+        margin-bottom: 1em; /* Add space below image */
+        padding-top: 1em;
+    }
+    .text-email-wrapper {
+        align-items: center; /* Center align text */
+    }
+    .email {
+        font-size: 0.75em; /* Smaller font size for email */
+        padding-top: 1em; /* Less padding */
+    }
+    .about {
+        font-size: 0.7em; /* Smaller font size for about text */
+        line-height: 0.15em;
+    }
+    h1 {
+        font-size: 1.5rem; /* Smaller font size for header */
+    }
+}
 </style>

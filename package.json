@@ -12,10 +12,10 @@
   "dependencies": {
     "@astro-community/astro-embed-utils": "^0.1.0",
     "@astro-community/astro-embed-vimeo": "^0.3.2",
-    "@astrojs/check": "^0.5.9",
+    "@astrojs/check": "0.9.3",
     "@fontsource-variable/plus-jakarta-sans": "^5.0.20",
     "@fontsource/crimson-text": "^5.0.12",
-    "astro": "^4.5.5",
+    "astro": "4.14.5",
     "typescript": "^5.4.2"
   }
 }
